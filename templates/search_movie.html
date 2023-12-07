@@ -135,6 +135,17 @@
                 <form action="/add_movie_from_search" method="post">
                   <input type="hidden" name="movie_id" value="{{ movie.id }}" />
                   <input type="hidden" name="name" value="{{ movie.name }}" />
+
+                  <input
+                    type="hidden"
+                    name="description"
+                    value="{{ movie.external_ids.tmdb.url }}" />
+
+                  <input
+                    type="hidden"
+                    name="url_streaming"
+                    value="{{ movie.locations }}" />
+
                   <input
                     type="hidden"
                     name="picture"

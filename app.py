@@ -69,8 +69,10 @@ def add_movie_from_search():
             'title': request.form['name'],
             'image_url': request.form['picture'],
             'updated': datetime.now(),  # Make sure to format correctly
-            'url_streaming': 'example_streaming_url'  # Update as needed
+            'url_streaming': request.form['url_streaming'], 
+            'description':request.form['description']
         }
+        
         crud.create(data)
         # Redirect to the index page after successful data processing
         return redirect(url_for('index'))

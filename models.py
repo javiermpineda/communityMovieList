@@ -10,4 +10,7 @@ class Movie(Base):
     image_url = Column(String)
     updated = Column(Date)
     url_streaming = Column(String)
+    description = Column(String)
+    
+    
 
