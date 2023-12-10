@@ -1,0 +1,26 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Otros
+*.log
+*.swp
+*.swo
+*.DS_Store
+
+# Virtual environment
+venv/

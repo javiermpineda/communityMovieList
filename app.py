@@ -3,6 +3,8 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from movie_crud import MovieCRUD
 from database import init_db
 from datetime import datetime
+import scrapping
+import json
 
 app = Flask(__name__)
 crud = MovieCRUD()
@@ -35,7 +37,17 @@ def add_movie():
 def view_movie(movie_id):
     movie = crud.read(movie_id)
     if movie:
-        return render_template('view_movie.html', movie=movie)
+        description = scrapping.find_description(movie.description)
+        print(movie.url_streaming)
+        print(movie.description)
+        data_list = json.loads(movie.url_streaming.replace("'", "\""))
+        context = {
+            'movie': movie,
+            'description': description,
+            'url_streaming': data_list[0]['url'],
+            'url_streaming_logo': data_list[0]['icon'],
+        }
+        return render_template('view_movie.html', **context)
     return 'Movie not found', 404
 
 @app.route('/delete_movie/<string:movie_id>', methods=['POST'])
