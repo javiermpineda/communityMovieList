@@ -45,6 +45,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
       type="text/css" />
+    
+
+    
   </head>
 
   <body>
@@ -91,8 +94,7 @@
               <h2>Movie Detail</h2>
               <div class="breadcrumb__links">
                 <a href="/">Home</a>
-                <a href="/search_movie">Search Movies</a>
-                <a href="/add_movie">Add Movies</a>
+                <a href="/search_movie">Search & Add Movies</a>
                 <span></span>
               </div>
             </div>
@@ -122,6 +124,16 @@
                             <span>Last updated: {{ movie.updated }}</span>
                             <h2>{{movie.title}}</h2>
                         </div>
+                        <div class="facts_movie">
+                            <span style="color: white;">{{facts}}</span>
+
+                            <li style="display: inline-block; border: solid 2px #007bff; border-radius: 5px; " class="video none">
+                          <a class="no_click play_trailer" href="{{ video_info.video_url }}" data-site="{{ video_info.video_site }}" data-id="{{ video_info.video_id }}" data-title="{{ video_info.video_title }}">
+                              <span style="align-content: center;"  class="social_youtube"></span>  Play Trailer
+                          </a>
+                        </li>
+                        </div>
+                        
                         <div class="overview">
                             <p>{{description}}</p>
                         </div>
@@ -145,7 +157,8 @@
     </section>
     <!-- Portfolio Section End -->
 
-    <!-- Footer Section Begin -->
+
+      <!-- Footer Section Begin -->
     <footer class="footer">
       <div class="container">
         <div class="footer__top">
@@ -247,5 +260,6 @@
     <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
     <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
   </body>
 </html>

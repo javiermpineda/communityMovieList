@@ -23,7 +23,8 @@ def add_movie():
                 'title': request.form['title'],
                 'image_url': request.form['image_url'],
                 'updated': datetime.now(),
-                'url_streaming': request.form['url_streaming']
+                'url_streaming': request.form['url_streaming'],
+                'description': request.form['description']
             }
             crud.create(data)
         except ValueError as e:
@@ -38,17 +39,20 @@ def view_movie(movie_id):
     movie = crud.read(movie_id)
     if movie:
         description = scrapping.find_description(movie.description)
-        print(movie.url_streaming)
-        print(movie.description)
+        facts = scrapping.find_facts(movie.description)
+        video_info = scrapping.scrape_video_info(movie.description)
         data_list = json.loads(movie.url_streaming.replace("'", "\""))
         context = {
             'movie': movie,
+            'facts': facts,
             'description': description,
             'url_streaming': data_list[0]['url'],
             'url_streaming_logo': data_list[0]['icon'],
+            'video_info': video_info,
         }
         return render_template('view_movie.html', **context)
     return 'Movie not found', 404
+
 
 @app.route('/delete_movie/<string:movie_id>', methods=['POST'])
 def delete_movie(movie_id):
