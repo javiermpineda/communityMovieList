@@ -45,9 +45,6 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
       type="text/css" />
-    
-
-    
   </head>
 
   <body>
@@ -106,59 +103,75 @@
 
     <!-- Portfolio Section Begin -->
     <section class="about spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about__pic">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="about__pic__item about__pic__item--large set-bg"
-                                    data-setbg="{{ movie.image_url }}"></div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="about__pic">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div
+                    class="about__pic__item about__pic__item--large set-bg"
+                    data-setbg="{{ movie.image_url }}"></div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about__text">
-                        <div class="section-title">
-                            <span>Last updated: {{ movie.updated }}</span>
-                            <h2>{{movie.title}}</h2>
-                        </div>
-                        <div class="facts_movie">
-                            <span style="color: white;">{{facts}}</span>
-
-                            <li style="display: inline-block; border: solid 2px #007bff; border-radius: 5px; " class="video none">
-                          <a class="no_click play_trailer" href="{{ video_info.video_url }}" data-site="{{ video_info.video_site }}" data-id="{{ video_info.video_id }}" data-title="{{ video_info.video_title }}">
-                              <span style="align-content: center;"  class="social_youtube"></span>  Play Trailer
-                          </a>
-                        </li>
-                        </div>
-                        
-                        <div class="overview">
-                            <p>{{description}}</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="services__item">
-                                    <h4>Watch Stream</h4>
-                                        <a href="{{url_movie}}" target="_blank" style="cursor: pointer;">
-                                    <div class="services__item__icon">
-                                            <img src="{{url_movie_logo}}" alt="">
-                                    </div>
-                                        </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about__text">
+              <div class="section-title">
+                <span>Last updated: {{ movie.updated }}</span>
+                <h2>{{movie.title}}</h2>
+              </div>
+              <div class="facts_movie">
+                <span style="color: white">{{facts}}</span>
+
+                <li
+                  style="
+                    display: inline-block;
+                    border: solid 2px #007bff;
+                    border-radius: 5px;
+                  "
+                  class="video none">
+                  <a
+                    class="no_click play_trailer"
+                    href="{{ video_info.video_url }}"
+                    data-site="{{ video_info.video_site }}"
+                    data-id="{{ video_info.video_id }}"
+                    data-title="{{ video_info.video_title }}">
+                    <span
+                      style="align-content: center"
+                      class="social_youtube"></span>
+                    Play Trailer
+                  </a>
+                </li>
+              </div>
+
+              <div class="overview">
+                <p>{{description}}</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="services__item">
+                    <h4>Watch Stream</h4>
+                    <a
+                      href="{{url_streaming}}"
+                      target="_blank"
+                      style="cursor: pointer">
+                      <div class="services__item__icon">
+                        <img src="{{url_streaming_logo}}" alt="" />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- Portfolio Section End -->
 
-
-      <!-- Footer Section Begin -->
+    <!-- Footer Section Begin -->
     <footer class="footer">
       <div class="container">
         <div class="footer__top">
@@ -260,6 +273,5 @@
     <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
     <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
   </body>
 </html>

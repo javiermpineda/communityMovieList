@@ -129,7 +129,7 @@
                 class="portfolio__item__video set-bg"
                 data-setbg="{{ movie.picture }}"></div>
               <div class="portfolio__item__text">
-                <a href="view_movie/{{ movie.id}}"> <h4>{{movie.name}}</h4></a>
+                <a href="#"> <h4>{{movie.name}}</h4></a>
                 <span></span>
                 <form action="/add_movie_from_search" method="post">
                   <input type="hidden" name="movie_id" value="{{ movie.id }}" />
