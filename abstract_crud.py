@@ -8,10 +8,7 @@ class AbstractCRUD(ABC):
     @abstractmethod
     def read(self, identifier):
         pass
-
-    @abstractmethod
-    def update(self, identifier, data):
-        pass
+    
 
     @abstractmethod
     def delete(self, identifier):
